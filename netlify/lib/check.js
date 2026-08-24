@@ -71,6 +71,7 @@ function requestOnce(url, timeoutMs) {
   const path = `${url.pathname || "/"}${url.search}`;
 
   return new Promise((resolve, reject) => {
+    let cert = null;
     const req = lib.request(
       {
         protocol: url.protocol,
@@ -79,6 +80,7 @@ function requestOnce(url, timeoutMs) {
         path,
         method: "GET",
         timeout: timeoutMs,
+        agent: false,
         headers: {
           Host: url.host,
           "User-Agent": USER_AGENT,
@@ -89,11 +91,10 @@ function requestOnce(url, timeoutMs) {
       },
       (res) => {
         const responseMs = Date.now() - started;
-        let cert = null;
         if (
+          !cert &&
           url.protocol === "https:" &&
-          res.socket &&
-          typeof res.socket.getPeerCertificate === "function"
+          typeof res.socket?.getPeerCertificate === "function"
         ) {
           cert = res.socket.getPeerCertificate();
         }
@@ -106,6 +107,13 @@ function requestOnce(url, timeoutMs) {
       },
     );
 
+    req.on("socket", (socket) => {
+      socket.on("secureConnect", () => {
+        if (typeof socket.getPeerCertificate === "function") {
+          cert = socket.getPeerCertificate();
+        }
+      });
+    });
     req.on("timeout", () => {
       req.destroy(new Error("timeout"));
     });
