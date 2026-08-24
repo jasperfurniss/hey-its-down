@@ -1,0 +1,36 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  directory = "netlify/functions"
+  external_node_modules = ["@netlify/blobs"]
+
+[functions."scheduled-check"]
+  schedule = "*/5 * * * *"
+
+[[redirects]]
+  from = "/app"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/start"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/api/monitors"
+  to = "/.netlify/functions/monitors"
+  status = 200
+
+[[redirects]]
+  from = "/api/config"
+  to = "/.netlify/functions/config"
+  status = 200
+
+[[redirects]]
+  from = "/badge/:id"
+  to = "/.netlify/functions/badge?id=:id"
+  status = 200
