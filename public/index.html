@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hey it's down — HTTP + SSL checks, founding $20/year</title>
+  <meta name="description" content="Freshping stopped March 6, 2026. HTTP GET + SSL expiry. Free: 1 URL every 5 minutes, commercial use allowed. Founding year: 10 URLs for $20.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="logo" href="/">Hey it's down.</a>
+      <nav>
+        <a href="#what">Scope</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#how">How it works</a>
+        <a href="/app">Start</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>Hey it's down.</h1>
+      <p class="promise">Freshping shut down March 6, 2026. UptimeRobot’s free plan allows commercial use, but checks are every 5 minutes; paid 1-minute is about $7–10/mo. We sell 1-minute HTTP GET + SSL expiry checks for a founding $20/year. Free is 1 URL every 5 minutes. Email and Slack webhook. Public SVG badge. No SMS, phone, teams, or incident theater.</p>
+      <p class="disclose">Honest MVP note: checks run every 5 minutes for every plan, including founding. 1-minute is the intended paid interval; free Netlify scheduled functions cannot run every minute, so we do not claim they do.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="/app">Start free</a>
+        <a class="btn btn-ghost" data-founding-cta href="/app#founding">Get founding year $20</a>
+      </div>
+    </div>
+
+    <section id="what">
+      <h2>What you get. What you don’t.</h2>
+      <p class="lede">v1 is a monitor, not an incident desk. The list is short on purpose.</p>
+      <div class="split">
+        <div class="card">
+          <h3>In v1</h3>
+          <ul class="yes">
+            <li>HTTP GET checks on the URLs you add</li>
+            <li>SSL certificate expiry warnings</li>
+            <li>Email alerts</li>
+            <li>A Slack incoming webhook you paste once</li>
+            <li>A public SVG status badge</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Not in v1</h3>
+          <ul class="no">
+            <li>SMS or phone calls</li>
+            <li>Team seats</li>
+            <li>Incident management</li>
+            <li>Status-page comments</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2>Pricing</h2>
+      <p class="lede">UptimeRobot free is commercial-ok and 5-minute. Paid 1-minute there is roughly $7–10/mo. Our founding year is $20 for 12 months. Commercial use is allowed on free here too.</p>
+      <div class="prices">
+        <div class="price">
+          <div class="tier">Free</div>
+          <div class="amt">$0</div>
+          <div class="sub">1 URL. Checks every 5 minutes. Commercial use allowed.</div>
+          <ul>
+            <li>1 URL</li>
+            <li>Checks every 5 minutes</li>
+            <li>HTTP GET + SSL expiry</li>
+            <li>Email and Slack webhook</li>
+            <li>Public SVG badge</li>
+          </ul>
+          <a class="btn btn-ghost" href="/app">Start free</a>
+        </div>
+        <div class="price featured">
+          <div class="tier">Founding year</div>
+          <div class="amt">$20 <small>/ 12 months</small></div>
+          <div class="sub">One-time. Then later $6/mo or $60/year.</div>
+          <ul>
+            <li>10 URLs</li>
+            <li>1-minute intended (this MVP checks every 5 minutes)</li>
+            <li>HTTP GET + SSL expiry</li>
+            <li>Email and Slack webhook</li>
+            <li>Public SVG badge</li>
+          </ul>
+          <a class="btn btn-primary" data-founding-cta href="/app#founding">Get founding year $20</a>
+        </div>
+        <div class="price">
+          <div class="tier">Pro monthly</div>
+          <div class="amt">$6 <small>/ month</small></div>
+          <div class="sub">Coming later. Same 10-URL Pro limits.</div>
+          <ul>
+            <li>10 URLs</li>
+            <li>Checks every 1 minute</li>
+            <li>HTTP GET + SSL expiry</li>
+            <li>Email and Slack webhook</li>
+            <li>Public SVG badge</li>
+          </ul>
+          <a class="btn btn-ghost" href="#checkout-monthly">Coming soon $6/mo</a>
+        </div>
+        <div class="price">
+          <div class="tier">Pro yearly</div>
+          <div class="amt">$60 <small>/ year</small></div>
+          <div class="sub">Coming later. Same Pro limits, billed yearly.</div>
+          <ul>
+            <li>10 URLs</li>
+            <li>Checks every 1 minute</li>
+            <li>HTTP GET + SSL expiry</li>
+            <li>Email and Slack webhook</li>
+            <li>Public SVG badge</li>
+          </ul>
+          <a class="btn btn-ghost" href="#checkout-yearly">Coming soon $60/yr</a>
+        </div>
+      </div>
+      <p class="note">Honest comparison: UptimeRobot free allows commercial use at 5-minute intervals. Their 1-minute plans are about $7–10/mo. Hey it's down founding year is $20 for 12 months. Free here stays 1 URL / 5 min, commercial use allowed. HTTP GET + SSL expiry. Email + Slack webhook. Public SVG badge. No SMS, phone, teams, or incident theater.</p>
+    </section>
+
+    <section id="how">
+      <h2>How it works</h2>
+      <p class="lede">Three steps. No onboarding maze.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">01</div>
+          <h3>Add a URL</h3>
+          <p>We request it on a schedule. This MVP checks every five minutes for every plan, up to one URL on free and ten on founding.</p>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <h3>Pick how you hear</h3>
+          <p>Email, or paste a Slack incoming webhook once. You get a public SVG badge if you want it on a page.</p>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <h3>We watch SSL too</h3>
+          <p>Expiry is part of the check, not a separate product. You get a warning when a certificate is within 14 days of expiry.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="row">
+        <div>Hey it's down — placeholder domain: heyitsdown.com</div>
+        <div>v1 scope is fixed. SMS, phone, seats, incidents, and status comments are out.</div>
+      </div>
+      <p id="checkout">Stripe checkout is stubbed. If a payment link is configured, founding buttons go there. Otherwise they say checkout is coming. Monthly and yearly stay <a href="#checkout-monthly">coming soon</a>.</p>
+      <span id="checkout-founding"></span>
+      <span id="checkout-monthly"></span>
+      <span id="checkout-yearly"></span>
+    </footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

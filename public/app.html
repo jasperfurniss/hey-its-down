@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start — Hey it's down</title>
+  <meta name="description" content="Add a URL. We check it now, then every 5 minutes. Email and optional Slack webhook. Public SVG badge.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="logo" href="/">Hey it's down.</a>
+      <nav>
+        <a href="/#pricing">Pricing</a>
+        <a href="/app">Start</a>
+      </nav>
+    </header>
+
+    <div class="app-hero">
+      <h1>Add a URL.</h1>
+      <p class="promise">We run an HTTP GET immediately so you see UP or DOWN without waiting, then again every 5 minutes. Free is 1 URL per email. Founding year is 10 URLs for $20 / 12 months.</p>
+      <p class="disclose">This MVP checks every 5 minutes for everyone, including founding. 1-minute is the intended paid interval; it is not running on this Netlify schedule.</p>
+    </div>
+
+    <form class="monitor" id="monitor-form">
+      <label>
+        URL
+        <input type="url" name="url" required placeholder="https://example.com" autocomplete="url">
+      </label>
+      <label>
+        Email for alerts
+        <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+        <span class="hint">Used as your account key. Free is 1 URL until the account is marked founding.</span>
+      </label>
+      <label>
+        Slack incoming webhook (optional)
+        <input type="url" name="slackWebhook" placeholder="https://hooks.slack.com/services/…">
+        <span class="hint">Paste once. We POST to it on UP↔DOWN and when SSL expires within 14 days.</span>
+      </label>
+      <div class="ctas">
+        <button class="btn btn-primary" type="submit" id="submit-btn">Check this URL</button>
+        <a class="btn btn-ghost" data-founding-cta href="#founding">Founding $20 — checkout coming</a>
+      </div>
+    </form>
+
+    <div class="card result" id="result" hidden aria-live="polite"></div>
+
+    <section id="founding">
+      <h2>Founding year</h2>
+      <p class="lede">$20 for 12 months, 10 URLs. Checkout is a Stripe Payment Link when <code>STRIPE_PAYMENT_LINK</code> is set; otherwise it is not wired. Paying does not auto-upgrade yet — an operator sets <code>plan=founding</code> on the account.</p>
+    </section>
+
+    <footer>
+      <div class="row">
+        <div>Checks every 5 minutes. Commercial use allowed on free.</div>
+        <div><a href="/">Back to the pitch</a></div>
+      </div>
+    </footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
